@@ -2,34 +2,16 @@
 
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useUser } from '@/store/UserContext';
 import { Sparkles } from 'lucide-react';
 
 export default function Splash() {
-  const router = useRouter();
-  const { profile, isLoading } = useUser();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     // Small timeout to avoid synchronous setState warning and ensure hydration
     const timer = setTimeout(() => setMounted(true), 0);
-    
-    if (!isLoading) {
-      const navTimer = setTimeout(() => {
-        if (profile) {
-          router.push('/dashboard');
-        } else {
-          router.push('/onboarding');
-        }
-      }, 2500);
-      return () => {
-        clearTimeout(timer);
-        clearTimeout(navTimer);
-      };
-    }
     return () => clearTimeout(timer);
-  }, [isLoading, profile, router]);
+  }, []);
 
   if (!mounted) return null;
 

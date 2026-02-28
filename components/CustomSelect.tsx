@@ -51,12 +51,12 @@ export default function CustomSelect({ value, onChange, options, placeholder, cl
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full bg-mystic-800/50 border border-gold-500/20 rounded-xl px-4 py-3 text-left flex items-center justify-between text-white focus:border-gold-500 focus:ring-1 focus:ring-gold-500/50 transition-all hover:bg-mystic-800/80"
+        className="w-full bg-mystic-800/50 border border-gold-500/20 rounded-xl px-2 sm:px-4 py-3 text-left flex items-center justify-between text-white focus:border-gold-500 focus:ring-1 focus:ring-gold-500/50 transition-all hover:bg-mystic-800/80"
       >
-        <span className={`truncate ${selectedOption ? 'text-white' : 'text-gray-400'}`}>
+        <span className={`truncate text-sm sm:text-base ${selectedOption ? 'text-white' : 'text-gray-400'}`}>
           {selectedOption ? selectedOption.label : placeholder || 'Chọn...'}
         </span>
-        <ChevronDown className={`w-4 h-4 text-gold-500/50 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-3 h-3 sm:w-4 sm:h-4 text-gold-500/50 transition-transform duration-200 shrink-0 ml-1 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>

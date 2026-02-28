@@ -2,14 +2,12 @@
 
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { useRouter } from 'next/navigation';
 import { useUser } from '@/store/UserContext';
 import { CHI } from '@/data/constants';
 import { ChevronRight, User } from 'lucide-react';
 import CustomSelect from './CustomSelect';
 
 export default function Onboarding() {
-  const router = useRouter();
   const { setProfile } = useUser();
   
   const [step, setStep] = useState(1);
@@ -28,14 +26,14 @@ export default function Onboarding() {
     } else {
       // Submit
       setProfile(formData);
-      router.push('/dashboard');
+      // No need to push router, parent component will re-render
     }
   };
 
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 100 }, (_, i) => ({ label: (currentYear - i).toString(), value: currentYear - i }));
   const days = Array.from({ length: 31 }, (_, i) => ({ label: (i + 1).toString(), value: i + 1 }));
-  const months = Array.from({ length: 12 }, (_, i) => ({ label: `Tháng ${i + 1}`, value: i + 1 }));
+  const months = Array.from({ length: 12 }, (_, i) => ({ label: `T${i + 1}`, value: i + 1 }));
   const hours = CHI.map((chi, index) => ({ label: `Giờ ${chi}`, value: index }));
 
   return (

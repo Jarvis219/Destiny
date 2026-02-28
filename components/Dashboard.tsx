@@ -47,7 +47,7 @@ export default function Dashboard() {
       desc: 'Mở khóa tính năng VIP',
       icon: <span className="text-xl">💎</span>,
       color: 'from-gold-600/50 to-gold-500/50',
-      href: '#'
+      href: '/premium'
     }
   ];
 
