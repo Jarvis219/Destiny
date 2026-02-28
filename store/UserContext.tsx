@@ -1,3 +1,5 @@
+'use client';
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 interface UserProfile {
@@ -14,6 +16,8 @@ interface UserContextType {
   setProfile: (profile: UserProfile) => void;
   clearProfile: () => void;
   isLoading: boolean;
+  hasVisitedDashboard: boolean;
+  setHasVisitedDashboard: (visited: boolean) => void;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -21,6 +25,7 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [profile, setProfileState] = useState<UserProfile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasVisitedDashboard, setHasVisitedDashboard] = useState(false);
 
   useEffect(() => {
     // Load from local storage on mount
@@ -48,7 +53,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <UserContext.Provider value={{ profile, setProfile, clearProfile, isLoading }}>
+    <UserContext.Provider value={{ profile, setProfile, clearProfile, isLoading, hasVisitedDashboard, setHasVisitedDashboard }}>
       {children}
     </UserContext.Provider>
   );

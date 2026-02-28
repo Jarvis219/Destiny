@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useUser, UserProvider } from '@/store/UserContext';
+import { useUser } from '@/store/UserContext';
 import { getPeriodHoroscope } from '@/utils/astroCalculator';
 import { motion } from 'motion/react';
 import { ChevronLeft, Briefcase, Heart, DollarSign, Activity, Sun } from 'lucide-react';
@@ -154,9 +154,5 @@ function ThoiGianContent() {
 }
 
 export default function ThoiGianPage() {
-  return (
-    <UserProvider>
-      <ThoiGianContent />
-    </UserProvider>
-  );
+  return <ThoiGianContent />;
 }

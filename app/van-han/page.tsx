@@ -1,6 +1,6 @@
 'use client';
 
-import { useUser, UserProvider } from '@/store/UserContext';
+import { useUser } from '@/store/UserContext';
 import { motion } from 'motion/react';
 import { ChevronLeft, Sun, TrendingUp, Briefcase, Heart, ShieldAlert } from 'lucide-react';
 import Link from 'next/link';
@@ -131,9 +131,5 @@ function VanHanContent() {
 }
 
 export default function VanHanPage() {
-  return (
-    <UserProvider>
-      <VanHanContent />
-    </UserProvider>
-  );
+  return <VanHanContent />;
 }

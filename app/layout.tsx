@@ -1,5 +1,6 @@
 import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
+import { UserProvider } from '@/store/UserContext';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -29,11 +30,13 @@ export default function RootLayout({
   return (
     <html lang="vi" className={`${inter.variable} ${playfair.variable}`}>
       <body suppressHydrationWarning className="min-h-screen bg-mystic-900 text-white antialiased selection:bg-gold-500 selection:text-mystic-900">
-        <main className="mx-auto max-w-md min-h-screen relative overflow-hidden shadow-2xl bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]">
-           {/* Background overlay for texture */}
-           <div className="absolute inset-0 bg-mystic-900/90 -z-10" />
-           {children}
-        </main>
+        <UserProvider>
+          <main className="mx-auto max-w-md min-h-screen relative overflow-hidden shadow-2xl bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]">
+             {/* Background overlay for texture */}
+             <div className="absolute inset-0 bg-mystic-900/90 -z-10" />
+             {children}
+          </main>
+        </UserProvider>
       </body>
     </html>
   );

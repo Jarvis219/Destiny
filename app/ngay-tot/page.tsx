@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useUser, UserProvider } from '@/store/UserContext';
+import { useUser } from '@/store/UserContext';
 import { generateMonthCalendar } from '@/utils/astroCalculator';
 import { motion } from 'motion/react';
 import { ChevronLeft, Calendar as CalendarIcon, ChevronRight } from 'lucide-react';
@@ -142,9 +142,5 @@ function NgayTotContent() {
 }
 
 export default function NgayTotPage() {
-  return (
-    <UserProvider>
-      <NgayTotContent />
-    </UserProvider>
-  );
+  return <NgayTotContent />;
 }

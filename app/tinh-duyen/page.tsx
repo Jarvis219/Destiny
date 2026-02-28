@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useUser, UserProvider } from '@/store/UserContext';
+import { useUser } from '@/store/UserContext';
 import { calculateCompatibility } from '@/utils/compatibilityEngine';
 import { motion } from 'motion/react';
 import { ChevronLeft, Heart, Sparkles } from 'lucide-react';
@@ -114,9 +114,5 @@ function TinhDuyenContent() {
 }
 
 export default function TinhDuyenPage() {
-  return (
-    <UserProvider>
-      <TinhDuyenContent />
-    </UserProvider>
-  );
+  return <TinhDuyenContent />;
 }

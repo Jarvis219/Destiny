@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useUser, UserProvider } from '@/store/UserContext';
+import { useUser } from '@/store/UserContext';
 import { generateHoroscopeChart, Palace } from '@/utils/horoscopeEngine';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, X } from 'lucide-react';
@@ -109,9 +109,5 @@ function TuViContent() {
 }
 
 export default function TuViPage() {
-  return (
-    <UserProvider>
-      <TuViContent />
-    </UserProvider>
-  );
+  return <TuViContent />;
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useUser, UserProvider } from '@/store/UserContext';
+import { useUser } from '@/store/UserContext';
 import { motion } from 'motion/react';
 import { ChevronLeft, Gem, Coffee, Construction } from 'lucide-react';
 import Link from 'next/link';
@@ -72,9 +72,5 @@ function PremiumContent() {
 }
 
 export default function PremiumPage() {
-  return (
-    <UserProvider>
-      <PremiumContent />
-    </UserProvider>
-  );
+  return <PremiumContent />;
 }

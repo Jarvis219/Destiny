@@ -59,9 +59,11 @@ export default function Dashboard() {
           <h2 className="text-gold-200 text-sm uppercase tracking-wider mb-1">Xin chào,</h2>
           <h1 className="text-2xl font-serif font-bold text-white">{profile.name || 'Quý khách'}</h1>
         </div>
-        <div className="w-10 h-10 rounded-full bg-gold-500/20 border border-gold-500/50 flex items-center justify-center">
-          <span className="text-lg">☯️</span>
-        </div>
+        <Link href="/profile">
+          <div className="w-10 h-10 rounded-full bg-gold-500/20 border border-gold-500/50 flex items-center justify-center hover:bg-gold-500/30 transition-colors cursor-pointer">
+            <span className="text-lg">☯️</span>
+          </div>
+        </Link>
       </header>
 
       {/* Main Info Card */}
